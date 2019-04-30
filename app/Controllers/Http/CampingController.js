@@ -54,7 +54,6 @@ class CampingController {
   async show ({ params }) {
     const id = Hashids.decode(params.id)
     const camping = await Camping.findOrFail(id)
-    camping.hashid = Hashids.encode(camping.id)
     return camping
   }
 
