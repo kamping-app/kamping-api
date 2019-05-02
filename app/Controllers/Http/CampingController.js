@@ -1,6 +1,7 @@
 'use strict'
 
 const Camping = use('App/Models/Camping')
+const Hashids = use('Hashids')
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
@@ -51,8 +52,8 @@ class CampingController {
    * @param {View} ctx.view
    */
   async show ({ params }) {
-    const camping = await Camping.findOrFail(params.id)
-
+    const id = Hashids.decode(params.id)
+    const camping = await Camping.findOrFail(id)
     return camping
   }
 
