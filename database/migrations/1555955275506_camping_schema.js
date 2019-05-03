@@ -17,7 +17,7 @@ class CampingSchema extends Schema {
         .onDelete('CASCADE')
       table.string('name', 240).notNullable()
       table.string('city', 140).notNullable()
-      table.string('state', 1);
+      table.string('state', 80);
       table.string('country', 2).default('BR');
       table.decimal('lat', 10, 8).default('-00.0000000000000');
       table.decimal('lng', 11, 8).default('-00.0000000000000');
