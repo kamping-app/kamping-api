@@ -21,4 +21,5 @@ Route.post('/authenticate', 'AuthController.authenticate')
 
 Route.get('/app',  'AppController.index').middleware(['auth'])
 
-Route.resource('campings', 'CampingController').apiOnly().middleware(['auth'])
+Route.resource('campings', 'CampingController').apiOnly()
+Route.resource('cities', 'CityController').apiOnly()
