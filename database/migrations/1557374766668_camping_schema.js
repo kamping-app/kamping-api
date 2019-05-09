@@ -15,10 +15,32 @@ class CampingSchema extends Schema {
         .inTable('users')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
+      table
+        .integer('country_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('countries')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
+        .default(2)
+      table
+        .integer('state_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('states')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
+      table
+        .integer('city_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('cities')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
       table.string('name', 240).notNullable()
-      table.string('city', 140).notNullable()
-      table.string('state', 80);
-      table.string('country', 2).default('BR');
       table.decimal('lat', 10, 8).default('-00.0000000000000');
       table.decimal('lng', 11, 8).default('-00.0000000000000');
       table.boolean('claimed').default(0);
