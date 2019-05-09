@@ -1,5 +1,9 @@
 'use strict'
 
+const City = use('App/Models/City')
+const Hashids = use('Hashids')
+
+
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
@@ -52,7 +56,13 @@ class CityController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
+  async show ({ params }) {
+    const city = await City.query()
+      .where('slug', '=', params.id)
+      .with('campings')
+      .fetch()
+
+    return city
   }
 
   /**
