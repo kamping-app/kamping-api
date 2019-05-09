@@ -11,6 +11,18 @@ class Camping extends Model {
   getHashids({ id }) {
     return Hashids.encode(id)
   }
+
+  country() {
+    return this.belongsTo('App/Models/Country')
+  }
+
+  state() {
+    return this.belongsTo('App/Models/State')
+  }
+
+  city() {
+    return this.belongsTo('App/Models/City')
+  }
 }
 
 module.exports = Camping

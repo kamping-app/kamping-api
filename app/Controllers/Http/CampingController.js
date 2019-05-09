@@ -53,7 +53,13 @@ class CampingController {
    */
   async show ({ params }) {
     const id = Hashids.decode(params.id)
-    const camping = await Camping.findOrFail(id)
+    const camping = await Camping.query()
+      .where('id', '=', id)
+      .with('country')
+      .with('state')
+      .with('city')
+      .fetch()
+
     return camping
   }
 
