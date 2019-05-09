@@ -56,12 +56,17 @@ class CityController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params }) {
+  async show ({ params, response }) {
     const city = await City.query()
       .where('slug', '=', params.id)
       .with('campings')
       .fetch()
 
+    if(city.rows.length === 0) {
+      return response
+              .status(404)
+              .send({ message: {error: 'No city found' } })
+    }
     return city
   }
 
