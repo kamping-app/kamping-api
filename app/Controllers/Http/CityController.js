@@ -61,8 +61,10 @@ class CityController {
    * @param {View} ctx.view
    */
   async show ({ params, response }) {
+    const id = Hashids.decode(params.id)
+
     const city = await City.query()
-      .where('slug', '=', params.id)
+      .where('id', '=', id)
       .with('campings')
       .fetch()
 
