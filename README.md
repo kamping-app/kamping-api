@@ -1,28 +1,63 @@
-# Adonis API application
+# Kamping App API
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
+This is an API for [kamping.app](https://kamping.app)
 
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+## Setup Local
 
-## Setup
+The only dependencies of the framework are Node.js and npm.
 
-Use the adonis command to install the blueprint
+Ensure your versions of those tools match the following criteria:
 
+- Node.js >= 8.0.0
+- npm >= 3.0.0
+
+
+### AdonisJS
+
+Install AdonisJS globally via `npm` like so:
 ```bash
-adonis new yardstick --api-only
+npm i -g @adonisjs/cli
 ```
 
-or manually clone the repo and then run `npm install`.
+### Clone this repository
 
+```bash
+git clone https://github.com/kamping-app/kamping-api.git
+```
+
+#### Install dependencies
+
+```bash
+cd kamping-api
+```
+
+With yarn
+```bash
+yarn
+```
+
+With npm
+```bash
+npm i
+```
+
+### APP Key
+
+Generate a new APP KEY
+```bash
+adonis key:generate
+```
 
 ### Migrations
 
 Run the following command to run startup migrations.
 
-```js
+```bash
 adonis migration:run
+```
+
+### Serve
+
+```bash
+adonis serve --dev
 ```
