@@ -35,7 +35,7 @@ class CampingController {
    * @param {Response} ctx.response
    */
   async store ({ request, auth, response }) {
-    const data = request.only(['name', 'city', 'state', 'country'])
+    const data = request.only(['name', 'city_id', 'state_id', 'country_id', 'lat', 'long'])
 
     const camping = await Camping.create({ user_id: auth.user.id, ...data})
 
