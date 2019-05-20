@@ -40,7 +40,7 @@ module.exports = {
 
   default: {
     salt: '2zaqBk4dVAGTTxuKybGhCf3XYTWq9GF2',
-    length: 12,
+    length: 6,
     alphabet: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
   },
 
