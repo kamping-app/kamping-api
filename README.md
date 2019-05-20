@@ -48,7 +48,9 @@ Generate a new APP KEY
 adonis key:generate
 ```
 
-### Migrations
+### Database & Migrations
+
+Init dump: https://gist.github.com/vicainelli/ec9f621936b9c4a961c24c226b3b7334
 
 Run the following command to run startup migrations.
 
