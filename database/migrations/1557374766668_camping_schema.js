@@ -41,6 +41,7 @@ class CampingSchema extends Schema {
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
       table.string('name', 240).notNullable()
+      table.text('address').nullable()
       table.decimal('lat', 10, 8).default('-00.0000000000000');
       table.decimal('lng', 11, 8).default('-00.0000000000000');
       table.boolean('claimed').default(0);
