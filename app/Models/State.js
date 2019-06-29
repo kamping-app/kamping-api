@@ -11,6 +11,14 @@ class State extends Model {
   getHashids({ id }) {
     return Hashids.encode(id)
   }
+
+  country() {
+    return this.belongsTo('App/Models/Country')
+  }
+
+  cities() {
+    return this.hasMany('App/Models/City')
+  }
 }
 
 module.exports = State

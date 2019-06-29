@@ -23,3 +23,4 @@ Route.get('/app',  'AppController.index').middleware(['auth'])
 
 Route.resource('campings', 'CampingController').apiOnly().middleware(['auth'])
 Route.resource('cities', 'CityController').apiOnly().middleware(['auth'])
+Route.resource('states', 'StateController').apiOnly().middleware(['auth'])

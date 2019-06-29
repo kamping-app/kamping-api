@@ -1,5 +1,8 @@
 'use strict'
 
+const State = use('App/Models/State')
+const Hashids = use('Hashids')
+
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
@@ -52,7 +55,21 @@ class StateController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
+  async show ({ params, response }) {
+    const id = this.decodeHashid(params, response)
+    return id
+    const state = await State.query()
+      .where('id', '=', id)
+      .with('country')
+      .with('cities')
+      .fetch()
+
+    if(state.rows.length === 0) {
+      return response
+              .status(404)
+              .send({ message: {error: 'No state found' } })
+    }
+    return state
   }
 
   /**
@@ -87,6 +104,12 @@ class StateController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+  }
+
+  async decodeHashid(params) {
+    const id = await Hashids.decode(params.id)
+    if(id.length <= 0) return 0
+    return id
   }
 }
 
