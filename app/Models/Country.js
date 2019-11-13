@@ -4,6 +4,11 @@
 const Model = use('Model')
 
 class Country extends Model {
+
+  states() {
+    return this.hasMany('App/Models/State')
+  }
+
 }
 
 module.exports = Country
