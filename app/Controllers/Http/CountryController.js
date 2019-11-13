@@ -1,5 +1,8 @@
 'use strict'
 
+const Country = use('App/Models/Country')
+const Hashids = use('Hashids')
+
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
@@ -40,7 +43,10 @@ class CountryController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
+  async store ({ request, auth, response }) {
+    const data = request.only(['name', 'code'])
+    const country = await Country.create({...data})
+    return country
   }
 
   /**

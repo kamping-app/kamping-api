@@ -8,8 +8,7 @@ class CountrySchema extends Schema {
     this.create('countries', (table) => {
       table.increments()
       table.string('name', 140)
-      table.string('slug', 140)
-      table.string('code', 2)
+      table.string('code', 2) // * 2 letter ISO 3166-1 code for the country
       table.timestamps()
     })
   }

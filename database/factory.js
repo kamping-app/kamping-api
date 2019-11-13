@@ -22,3 +22,11 @@ Factory.blueprint('App/Models/User', (faker, i, data = {}) => {
     ...data
   }
 })
+
+Factory.blueprint('App/Models/Country', (faker, i, data = {}) => {
+  return {
+    name: faker.country({ full: true }),
+    code: faker.country(),
+    ...data
+  }
+})
