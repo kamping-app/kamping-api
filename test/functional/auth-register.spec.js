@@ -33,7 +33,5 @@ test("can't create user with invalid data", async ({ assert, client }) => {
     .send({ name: user.name, email: "", password: user.password })
     .end();
 
-    console.log(response)
-
   response.assertStatus(400);
 });
