@@ -31,3 +31,19 @@ test("it should return JWT when session created", async ({
   response.assertStatus(200);
   assert.exists(response.body.token);
 });
+
+test("it should NOT return JWT", async ({ client }) => {
+  const sessionPayload = {
+    email: "vicainelli@gmail.com",
+    password: "123456"
+  };
+
+  await Factory.model("App/Models/User").create(sessionPayload);
+
+  const response = await client
+    .post("/authenticate")
+    .send({ ...sessionPayload.email, password: "" })
+    .end();
+
+  response.assertStatus(401);
+});
