@@ -12,13 +12,13 @@ class Camping extends Model {
     return Hashids.encode(id)
   }
 
-  country() {
-    return this.belongsTo('App/Models/Country')
-  }
+  // country() {
+  //   return this.belongsTo('App/Models/Country')
+  // }
 
-  state() {
-    return this.belongsTo('App/Models/State')
-  }
+  // state() {
+  //   return this.belongsTo('App/Models/State')
+  // }
 
   city() {
     return this.belongsTo('App/Models/City')

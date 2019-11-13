@@ -13,10 +13,6 @@ class City extends Model {
     return Hashids.encode(id)
   }
 
-  country() {
-    return this.belongsTo('App/Models/Country')
-  }
-
   state() {
     return this.belongsTo('App/Models/State')
   }

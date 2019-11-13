@@ -6,9 +6,6 @@ trait("Test/ApiClient");
 trait("Auth/Client");
 trait("DatabaseTransactions");
 
-/** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const Ca = use("App/Models/User");
-
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use("Factory");
 
