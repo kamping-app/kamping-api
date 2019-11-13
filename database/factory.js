@@ -30,3 +30,10 @@ Factory.blueprint('App/Models/Country', (faker, i, data = {}) => {
     ...data
   }
 })
+
+Factory.blueprint('App/Models/State', (faker, i, data = {}) => {
+  return {
+    name: faker.state(),
+    ...data
+  }
+})
