@@ -16,7 +16,6 @@ class StateSchema extends Schema {
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
       table.string('name', 140)
-      table.string('slug', 140)
       table.timestamps()
     })
   }
