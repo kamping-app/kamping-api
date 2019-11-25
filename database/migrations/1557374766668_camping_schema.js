@@ -10,7 +10,7 @@ class CampingSchema extends Schema {
       table
         .integer('user_id')
         .unsigned()
-        .notNullable()
+        .nullable()
         .references('id')
         .inTable('users')
         .onUpdate('CASCADE')
@@ -18,7 +18,7 @@ class CampingSchema extends Schema {
       table
         .integer('country_id')
         .unsigned()
-        .notNullable()
+        .nullable()
         .references('id')
         .inTable('countries')
         .onUpdate('CASCADE')
@@ -27,7 +27,7 @@ class CampingSchema extends Schema {
       table
         .integer('region_id')
         .unsigned()
-        .notNullable()
+        .nullable()
         .references('id')
         .inTable('regions')
         .onUpdate('CASCADE')
