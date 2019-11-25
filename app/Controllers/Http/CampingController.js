@@ -39,7 +39,7 @@ class CampingController {
 
     const camping = await Camping.create({ user_id: auth.user.id, ...data})
 
-    return camping
+    return response.created(camping)
   }
 
   /**

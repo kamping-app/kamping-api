@@ -14,12 +14,12 @@ test('it should create a Region with valid data', async ({ assert, client }) => 
 
   const user = await Factory.model("App/Models/User").create();
   const country = await Factory.model("App/Models/Country").create();
-  const region = await Factory.model("App/Models/Region").make();
+  const region = await Factory.model("App/Models/Region").make({ country_id: country.id });
 
   const response = await client
     .post("/regions")
     .loginVia(user, "jwt")
-    .send({ ...region.toJSON(), country_id: country.id })
+    .send({ ...region.toJSON() })
     .end();
 
   response.assertStatus(201);
@@ -31,13 +31,14 @@ test('it should NOT create a Region with invalid data', async ({ assert, client 
   const user = await Factory.model("App/Models/User").create();
   const country = await Factory.model("App/Models/Country").create();
   const region = {
-    name: null
+    name: null,
+    country_id: country.id
   }
 
   const response = await client
     .post("/regions")
     .loginVia(user, "jwt")
-    .send({ ...region, country_id: country.id })
+    .send({ ...region })
     .end();
 
   response.assertStatus(400);
