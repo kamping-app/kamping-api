@@ -22,7 +22,14 @@ Route.post('/authenticate', 'AuthController.authenticate')
 
 Route.get('/app',  'AppController.index').middleware(['auth'])
 
-Route.resource('campings', 'CampingController').apiOnly().middleware(['auth'])
+Route.resource('campings', 'CampingController').apiOnly()
+  .validator(new Map([
+    [['campings.store'], ['CampingStore']]
+  ]))
+  .middleware(new Map([
+    [['store', 'update', 'destroy'], ['auth']]
+  ]))
+
 Route.resource('cities', 'CityController').apiOnly().middleware(['auth'])
 Route.resource('regions', 'RegionController')
   .apiOnly()
