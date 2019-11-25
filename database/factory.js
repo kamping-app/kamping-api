@@ -38,3 +38,10 @@ Factory.blueprint('App/Models/Region', (faker, i, data = {}) => {
     ...data
   }
 })
+
+Factory.blueprint('App/Models/City', (faker, i, data = {}) => {
+  return {
+    name: faker.city(),
+    ...data
+  }
+})

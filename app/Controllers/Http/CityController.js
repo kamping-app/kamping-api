@@ -49,6 +49,9 @@ class CityController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    const data = request.only(['name', 'country_id', 'region_id'])
+    const city = await City.create({...data})
+    return response.created(city)
   }
 
   /**

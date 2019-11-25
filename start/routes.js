@@ -30,7 +30,14 @@ Route.resource('campings', 'CampingController').apiOnly()
     [['store', 'update', 'destroy'], ['auth']]
   ]))
 
-Route.resource('cities', 'CityController').apiOnly().middleware(['auth'])
+Route.resource('cities', 'CityController')
+.validator(new Map([
+  [['cities.store'], ['CityStore']]
+]))
+.middleware(new Map([
+  [['store', 'update', 'destroy'], ['auth']]
+]))
+
 Route.resource('regions', 'RegionController')
   .apiOnly()
   .validator(new Map([
