@@ -16,15 +16,14 @@ class CitySchema extends Schema {
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
       table
-        .integer('state_id')
+        .integer('region_id')
         .unsigned()
         .notNullable()
         .references('id')
-        .inTable('states')
+        .inTable('regions')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
       table.string('name', 140)
-      table.string('slug', 140)
       table.timestamps()
     })
   }

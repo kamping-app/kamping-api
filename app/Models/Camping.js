@@ -16,8 +16,8 @@ class Camping extends Model {
   //   return this.belongsTo('App/Models/Country')
   // }
 
-  // state() {
-  //   return this.belongsTo('App/Models/State')
+  // region() {
+  //   return this.belongsTo('App/Models/Region')
   // }
 
   city() {

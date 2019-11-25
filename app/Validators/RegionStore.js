@@ -1,6 +1,6 @@
 'use strict'
 
-class StateStore {
+class RegionStore {
   get rules() {
     return {
       name: "required",
@@ -12,4 +12,4 @@ class StateStore {
   }
 }
 
-module.exports = StateStore
+module.exports = RegionStore

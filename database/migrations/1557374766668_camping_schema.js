@@ -25,11 +25,11 @@ class CampingSchema extends Schema {
         .onDelete('CASCADE')
         .default(2)
       table
-        .integer('state_id')
+        .integer('region_id')
         .unsigned()
         .notNullable()
         .references('id')
-        .inTable('states')
+        .inTable('regions')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
       table

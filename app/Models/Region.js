@@ -4,7 +4,7 @@
 const Model = use('Model')
 const Hashids = use('Hashids')
 
-class State extends Model {
+class Region extends Model {
   static get computed () {
     return ['hashids']
   }
@@ -21,4 +21,4 @@ class State extends Model {
   }
 }
 
-module.exports = State
+module.exports = Region

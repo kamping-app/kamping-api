@@ -24,10 +24,10 @@ Route.get('/app',  'AppController.index').middleware(['auth'])
 
 Route.resource('campings', 'CampingController').apiOnly().middleware(['auth'])
 Route.resource('cities', 'CityController').apiOnly().middleware(['auth'])
-Route.resource('states', 'StateController')
+Route.resource('regions', 'RegionController')
   .apiOnly()
   .validator(new Map([
-    [['states.store'], ['StateStore']]
+    [['regions.store'], ['RegionStore']]
   ]))
   .middleware(new Map([
     [['store', 'update', 'destroy'], ['auth']]

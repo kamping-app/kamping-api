@@ -1,6 +1,6 @@
 'use strict'
 
-const { test, trait } = use('Test/Suite')('State Store')
+const { test, trait } = use('Test/Suite')('Region Store')
 
 trait("Test/ApiClient");
 trait("Auth/Client");
@@ -10,34 +10,34 @@ trait("DatabaseTransactions");
 const Factory = use("Factory");
 
 
-test('it should create a State with valid data', async ({ assert, client }) => {
+test('it should create a Region with valid data', async ({ assert, client }) => {
 
   const user = await Factory.model("App/Models/User").create();
   const country = await Factory.model("App/Models/Country").create();
-  const state = await Factory.model("App/Models/State").make();
+  const region = await Factory.model("App/Models/Region").make();
 
   const response = await client
-    .post("/states")
+    .post("/regions")
     .loginVia(user, "jwt")
-    .send({ ...state.toJSON(), country_id: country.id })
+    .send({ ...region.toJSON(), country_id: country.id })
     .end();
 
   response.assertStatus(201);
-  assert.equal(response.body.name, state.name);
+  assert.equal(response.body.name, region.name);
 })
 
-test('it should NOT create a State with invalid data', async ({ assert, client }) => {
+test('it should NOT create a Region with invalid data', async ({ assert, client }) => {
 
   const user = await Factory.model("App/Models/User").create();
   const country = await Factory.model("App/Models/Country").create();
-  const state = {
+  const region = {
     name: null
   }
 
   const response = await client
-    .post("/states")
+    .post("/regions")
     .loginVia(user, "jwt")
-    .send({ ...state, country_id: country.id })
+    .send({ ...region, country_id: country.id })
     .end();
 
   response.assertStatus(400);

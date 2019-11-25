@@ -66,7 +66,7 @@ class CityController {
     const city = await City.query()
       .where('id', '=', id)
       .with('country')
-      .with('state')
+      .with('region')
       .with('campings')
       .fetch()
 

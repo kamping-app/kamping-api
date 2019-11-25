@@ -31,9 +31,10 @@ Factory.blueprint('App/Models/Country', (faker, i, data = {}) => {
   }
 })
 
-Factory.blueprint('App/Models/State', (faker, i, data = {}) => {
+Factory.blueprint('App/Models/Region', (faker, i, data = {}) => {
   return {
-    name: faker.state(),
+    name: faker.state({ country: 'us', full: true }),
+    code: faker.state({ country: 'us' }),
     ...data
   }
 })
