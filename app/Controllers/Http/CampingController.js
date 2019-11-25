@@ -55,9 +55,9 @@ class CampingController {
     const id = Hashids.decode(params.id)
     const camping = await Camping.query()
       .where('id', '=', id)
-      .with('country')
-      .with('region')
       .with('city')
+      .with('region')
+      .with('country')
       .fetch()
 
     return camping
