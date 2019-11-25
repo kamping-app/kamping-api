@@ -4,7 +4,7 @@ class CountryStore {
   get rules() {
     return {
       name: "required",
-      code: "required"
+      code: "required",
     };
   }
 
