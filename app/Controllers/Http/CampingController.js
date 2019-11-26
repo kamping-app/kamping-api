@@ -85,9 +85,9 @@ class CampingController {
   async destroy ({ params, auth, response }) {
     const id = Hashids.decode(params.id)
 
-    const camping = await Camping.findOrFail(id)
+    const camping = await Camping.findOrFail(id[0])
 
-    if(camping.user_id != auth.user.id) return response.status(401)
+    if(camping.user_id != auth.user.id) return response.status(401).json()
 
     await camping.delete();
   }
